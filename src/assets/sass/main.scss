@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons');
+@import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+@import 'style/variables';
+@import 'style/colors';
+@import 'style/general';
+@import 'style/components';
+
+html{
+  height: 100%;
+  overflow: auto;
+}
+body{
+  font-family: $fontFamily;
+  font-size:14px;
+  // background-color: $backgroundColor;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  direction: $direction;
+  text-align: left !important;
+  color:rgba(0,0,0,.87);
+  aside{
+      position: fixed;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      width: $sidenav;
+      z-index: 1;
+      transform: translate3d(0,0,0)!important;
+      box-shadow: 0 64px 5px 0 rgba(0,0,0,0.26);
+      transition: all 0.4s ease;
+      overflow: hidden;
+      &.expand{
+          width: $sidenavExpand;
+          .nav-container{
+              .navigation-container{
+                  li{
+                      padding: 1rem 0.5rem;
+                      &.active{
+                          background-color:$primary;
+                          border-radius:5px;
+                          color:#fff;
+                          opacity: 0.9;
+                          i{
+                              color: #fff;
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      .nav-container{
+          margin-top: 65px;
+          .navigation-container{
+              padding: 1.85rem 1.15rem;
+              li{
+                  padding: 1rem 0;
+                  color: #666;
+                  width: 210px;
+                  i{
+                      margin-right: 1.25rem;
+                      color: #009BC9;
+                  }
+                  &.active{
+                      opacity: 0.9;
+                      color: #009BC9;
+                  }
+                  span{
+                      &.fadeIn {
+                          transition: all 0.5s ease;
+                          opacity: 1;
+                      }                            
+                      &.fadeOut {
+                          transition: all 0.4s ease;
+                          opacity: 0;
+                      }
+                  }
+              }
+          }
+      }
+      
+  }
+  .main-container-backdrop{
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0.2;
+      background-image: url(/assets/images/login.jpg);
+      background-size: cover;
+      min-height: 100%;
+      overflow: hidden;
+  }
+  .main-container{
+      position: relative;
+      transition: all .5s ease;
+      margin-left: $sidenav;
+      margin-top: 65px;
+      padding: 2rem;
+      min-height: 100%;
+      &.reduce{
+          margin-left: $sidenavExpand;
+      }
+  }
+  @if $direction == rtl {
+      .main-container{
+          margin-left: 0;
+          margin-right: $sidenav;
+          &.reduce{
+              margin-right: $sidenavExpand;
+              margin-left: 0;
+          }
+      }
+      aside{
+          left: auto;
+          right: 0;
+          text-align: right;
+          .nav-container{
+              .navigation-container{
+                  li{
+                      i{
+                          margin-left: 1.25rem;
+                          margin-right: 0;
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+button:focus,input:focus{
+  outline: none;
+}
+*{
+  :focus{
+      outline: none;
+  }
+}
+
+.mat-select-panel{
+  // max-width:100% !important;//738px
+  max-width:738px;
+  min-width: 105% !important;
+}
+
+.mat-button-toggle-group, .mat-button-toggle-standalone {
+  box-shadow:#f8f9fa !important;
+}
+
+.cdk-overlay-pane {
+  display: block !important;
+}
+
+.mat-form-field .mat-form-field-infix {
+  text-align: left;
+  direction: ltr; 
+}

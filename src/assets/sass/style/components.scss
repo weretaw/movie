@@ -1,0 +1,271 @@
+/*------ Card ------ */
+.card {
+  position: relative;
+  margin-bottom: 24px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  &:hover{
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  header {
+      position: relative;
+      padding: 20px 24px;
+      color: $titleColor;
+      .title{
+          margin: 0;
+          font-size: 1.5rem;
+      }
+      .subtitle{
+          display: block;
+          margin-top: 8px;
+          opacity: .5;
+      }
+  }
+  .card-toolbar{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      z-index: 1;
+      color:#666;
+      i{
+          cursor: pointer;
+      }
+  }
+  .card-body {
+      padding: 20px 24px;
+  }
+  .card-actions{
+      clear: both;
+      padding: 20px 24px;
+      text-align: right;
+  }
+}
+
+/*-----------------------------  Angular Material   ------------------------------------- */
+
+button.mat-fab.mat-accent, button.mat-flat-button.mat-accent, button.mat-mini-fab.mat-accent, button.mat-raised-button.mat-accent{
+  background-color: $secondaryColor;
+}
+.mat-icon-button.mat-accent{
+  color: $secondaryColor;
+}
+.cdk-overlay-connected-position-bounding-box{
+  align-items: flex-end !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: $secondaryColor;
+}
+
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(131, 165, 83, 0.603);
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: $secondaryColor;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, 
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $secondaryColor;
+}
+
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary 
+.mat-pseudo-checkbox-indeterminate {
+  background: $secondaryColor;
+}
+
+.mat-calendar-body-selected {
+  background-color: #91ba5a;
+  color: #fff;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle-default-icon {
+  width: 2em;
+  color: #0ea18185;
+}
+
+.mat-button-toggle-checked {
+  background-color: #f8f9fa;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+/*------------------  Buttons  ---------- */
+
+.mat-raised-button{
+  min-height: 36px;
+}
+
+.mat-menu-panel {
+  margin-top: 3rem;
+}
+
+/*------------------  Form Controls  ---------- */
+
+/*Angular material input*/
+.mat-form-field{
+  text-align: right;
+  margin: 0.5rem 0;
+  &.full-width{
+      width: 100%;
+  }
+  .mat-form-field-infix{
+      text-align: right;
+      direction: rtl;
+  }
+  .mat-select{
+      width: 100%;
+      line-height: 1.125;
+      padding: 0;
+      padding: 0.25rem 0;
+      font-size: 1rem;
+  }
+  .mat-select-panel {
+      overflow: auto;
+      padding-top: 0;
+      padding-bottom: 0;
+      max-height: 256px;
+  }
+}
+
+
+/*-----------------------------  Primeng   ------------------------------------- */
+
+/*------------------  Table  ---------- */
+
+.ui-table{
+  .ui-paginator-bottom{
+      .ui-paginator-page{
+          color: rgba(0,0,0,0.58);
+      }
+      .ui-state-active{
+          color: #1aa5cf;
+          font-weight: 700;
+      }
+      .ui-paginator-icon{
+          color: rgba(0,0,0,0.58);
+          transform: rotate(180deg);
+      }
+  }
+}
+.ui-table-wrapper{
+  table{
+      thead{
+          th{
+              color: rgba(0, 0, 0, 0.54);
+              font-weight: 500;
+          }
+      }
+      tr{
+          border-bottom:1px solid rgba(0, 0, 0, 0.12);
+          align-items: center;
+          padding: 0 24px;
+          min-height: 40px;
+          box-sizing: border-box;
+
+          th,td{
+              flex: 1;
+              overflow: hidden;
+              word-wrap: break-word;
+              color: rgba(0, 0, 0, 0.87);
+              font-size: 0.9rem;
+          }
+      }
+  }
+}
+
+// .ui-table {
+//     position: relative;
+//     margin-right: 1rem;
+//     margin-top: 2rem;
+//     margin-left: 1rem;
+//     background-color: rgba(0, 0, 0, 0.12);
+// }
+
+/*------------------   Confirm dialog  ---------- */
+
+.ui-confirmdialog 
+{
+  background: #fff;
+  .ui-dialog{
+      box-shadow: 2px 3px 10px 0 rgba(0,0,0,0.4);
+      .ui-dialog-titlebar{
+          padding: 1rem;
+          span.ui-dialog-title{
+              font-family: $fontFamily;
+              font-size: 1.25rem;
+              color: $titleColor;
+          }
+      }
+      .ui-button{
+          font-family: $fontFamily;
+          border: none;
+          margin: 0;
+          min-width: 88px;
+          line-height: 36px;
+          padding: 8px 16px;
+          border-radius: 2px;
+          user-select: none;
+          cursor: pointer;
+          outline: 0;
+          background: transparent;
+          transition: all 0.3s ease-in-out;
+          &:hover{
+              background: rgba(181, 181, 181, 0.30);
+          }
+          span.ui-button-text{
+              padding: 0;
+          }
+          span.ui-button-icon-left{
+              display: none;
+          }
+      }
+      div.ui-dialog-content{
+          padding: 0 1rem;
+          color:$textColor;
+          .fa{
+              display: none;
+          }
+          span.ui-confirmdialog-message{
+              line-height: 1.5;
+              font-weight: 500;
+          }
+      }
+  }
+}
+
+/*------------------  Overlay ---------- */
+
+.ui-overlaypanel{
+  background: #fff;
+  padding: 1rem;
+  max-width: 600px;
+  .ui-overlaypanel-close{
+      right: 2px;
+      top:2px;
+      span.fa-fw{
+          font-size: 18px;
+          color: $secondaryColor;
+      }
+  }
+}
+
+/*------------------   Growl  ---------- */
+
+.ui-growl{
+  transition: all 2.5s ease;
+}
+.ui-growl-message-error{
+  background-color: #f72c2c;
+  color: #fff;
+}
+.ui-growl-message-success{
+background-color: #096b2f;
+color: #fff;
+}
+
+

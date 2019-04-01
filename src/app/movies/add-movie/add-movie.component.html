@@ -1,0 +1,72 @@
+<mat-card>
+  <!-- {{ movieForm.value | json }} -->
+  <button mat-button color="primary" (click)="closeDialog()">Close</button>
+
+  <form [formGroup]="movieForm" (ngSubmit)="saveForm()" autocomplete="off">
+    <div class="form-container">
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="form-field-width">
+              <input type="text" matInput formControlName="Title" placeholder="Title">
+              <mat-error>
+                Title is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="form-field-width">
+              <input type="text" matInput formControlName="Year" placeholder="Year">
+              <mat-error>
+                  Year is required
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="form-field-width">
+              <input type="text" matInput formControlName="Runtime" placeholder="Runtime">
+              <mat-error>
+                  Runtime is required
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              <mat-form-field class="form-field-width">
+                <input type="text" matInput formControlName="Poster" placeholder="Poster">
+                <mat-error>
+                    Poster is required
+                  </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="form-field-width">
+              <mat-select formControlName="Genre" placeholder="Genre">
+                <mat-option *ngFor="let genre of genres" [value]="genre">{{genre}}</mat-option>
+              </mat-select>
+              <mat-error>
+                  Genre is required
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="form-field-width">
+              <input type="text" matInput formControlName="Director" placeholder="Director"/>
+              <mat-error>
+                  Director is required
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+    </div>
+    <button type="submit" mat-button color="primary">Save</button>
+  </form>
+</mat-card>
