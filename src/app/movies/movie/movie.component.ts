@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material';
 })
 export class MovieComponent implements OnInit {
   columns: any[];
-  movies: MovieModel[];
+  movies: any;
   cols: DynamicColumnModel[];
   stringType: DynamicColumnType = DynamicColumnType.string;
   linkColumnType: DynamicColumnType = DynamicColumnType.link;
@@ -43,7 +43,7 @@ export class MovieComponent implements OnInit {
   }
   searchMovie(title: string) {
     this.movieService.searchMovieByTitle(title.toLowerCase())
-      .then(resp => this.movies = resp.Search);
+      .then(resp => this.movies = resp);
     console.log("search", this.movies);
   }
   openAddMovieDialog(): void {
@@ -74,11 +74,12 @@ export class MovieComponent implements OnInit {
   }
 
   deleteMovieDialog(movieId:any){
+    var movie:any = this.getMoviebyId(movieId);
     this.dialog.open(DeleteMovieComponent, {
       minHeight: "300px",
       minWidth: "300px",
       panelClass: "dialog-custom-style",
-      data: movieId
+      data: movie
     })
   }
 }

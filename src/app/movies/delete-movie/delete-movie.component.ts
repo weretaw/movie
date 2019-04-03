@@ -1,5 +1,5 @@
 import { MovieModel } from './../../model/movie.model';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MovieService } from 'src/app/service/movie.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -9,7 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./delete-movie.component.scss']
 })
 export class DeleteMovieComponent implements OnInit {
-  movies:MovieModel;
+ @Input() movies:MovieModel[];
   constructor(
     private movieService: MovieService,
     public dialogRef: MatDialogRef<DeleteMovieComponent>,
@@ -24,10 +24,13 @@ export class DeleteMovieComponent implements OnInit {
   }
 
   deleteMovie(){
-    this.movieService.searchMovieById(this.data)
-    .then(resp=>this.movies=resp.Search);
+    debugger
+    this.movies=this.movieService.getMovies()
+    console.log("fromservice",this.movies);
+    var index=this.movies.indexOf(this.data);
     if(this.movies!=null){
-      this.movies.imdbID.slice(1);
+      this.movies.slice(index,1);
     }
+    this.closeDialog();
   }
 }

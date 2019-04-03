@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MovieService {
-  movies: any;
+  movies: any={};
   constructor(private httpClinet: HttpClient) { }
 
   searchMovieById(movieId:string) {
@@ -20,18 +20,22 @@ export class MovieService {
   }
 
   searchMovieByTitle(title: string) {
-    const url: any = '/api/?s=' + title + '&apikey=ca06d6b1';
+    const url: any = 'http://www.omdbapi.com/?s=' + title + '&apikey=ca06d6b1';
     return fetch(url)
-      .then(response => response.json());
+      .then(response => response.json())
+      .then(resp=> {return this.movies=resp.Search});
   }
   
+  getMovies(){
+    return this.movies;
+  }
 
   getMovieGenre(): Observable<string[]> {
     return this.httpClinet.get<string[]>('./assets/genres.json');
   }
 
   createMovie(movie: MovieModel) {
-    let url: string = '/api/?apikey=ca06d6b1&' + 'movie/add';
+    let url: string = 'http://www.omdbapi.com/?apikey=ca06d6b1&' + 'movie/add';
     return this.httpClinet.post(url, movie);
   }
 }

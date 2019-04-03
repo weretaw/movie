@@ -1,4 +1,3 @@
-import { AddMovieComponent } from './movies/add-movie/add-movie.component';
 import { FormsModule } from '@angular/forms';
 import { MovieModule } from './movies/movie.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +17,6 @@ import { AppRoutingModule } from './/app-routing.module';
   declarations: [
     AppComponent,
     HomeComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -40,9 +38,10 @@ import { AppRoutingModule } from './/app-routing.module';
 
   ],
   exports:[
-    HomeComponent
+    HomeComponent,
   ],
   providers: [DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[]
 })
 export class AppModule { }
